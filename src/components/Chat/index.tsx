@@ -9,7 +9,7 @@ interface ChatMessage {
   time: string;
 }
 
-export const Mikrochat = () => {
+export const Chat = () => {
   let messagesWindow!: HTMLDivElement;
   let chatInput!: HTMLInputElement;
   let usernameInput!: HTMLInputElement;
@@ -75,7 +75,7 @@ export const Mikrochat = () => {
     }
   });
   return (
-    <section class="border border-slate-700 bg-slate-900 text-slate-700">
+    <section class="w-full border border-slate-700 bg-slate-900 text-slate-700">
       <div
         class="p-2 w-full flex justify-between hover:text-slate-500 hover:bg-slate-800 transition-all duration-200 ease-in-out cursor-pointer select-none"
         onClick={() => setIsHidden(!isHidden())}
