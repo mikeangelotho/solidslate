@@ -1,13 +1,5 @@
 import { Menu } from "lucide-solid";
-import {
-  createEffect,
-  createSignal,
-  For,
-  JSXElement,
-  Match,
-  Show,
-  Switch,
-} from "solid-js";
+import { createSignal, For, Show } from "solid-js";
 import { ComponentInfo, Components } from "~/components/Components";
 import { List } from "~/components/List";
 

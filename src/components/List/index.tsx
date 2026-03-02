@@ -59,7 +59,7 @@ export const List = (props: {
         requestAnimationFrame(() => {
           menuElement.classList.add("opacity-100", "translate-y-2");
           if (menuElement.getBoundingClientRect().bottom > window.innerHeight) {
-            menuElement.style.top = `${(window.innerHeight - menuElement.getBoundingClientRect().top) * -3.5}px`;
+            menuElement.style.transform = `translateY(${(window.innerHeight - menuElement.getBoundingClientRect().bottom) * 1.9}px)`;
           }
         });
     });
@@ -102,6 +102,7 @@ export const List = (props: {
               type="text"
               placeholder="Search list..."
               onFocusIn={() => {
+                props.signal?.set("");
                 if (inputElement.value.length > 0)
                   setSearchTerm(inputElement.value);
                 setShowMenu(true);
@@ -140,6 +141,7 @@ export const List = (props: {
                 if (!showMenu()) {
                   if (inputElement.value.length > 0) {
                     setSearchTerm("");
+                    props.signal?.set("");
                     inputElement.value = "";
                   }
                   setShowMenu(true);
@@ -155,7 +157,7 @@ export const List = (props: {
           <Show when={showMenu()}>
             <ul
               ref={menuElement}
-              class="absolute top-4 p-2 border border-b-2 border-neutral-300 bg-white mt-2 select-none rounded-md overflow-auto w-fit opacity-0 transition-all duration-1000 ease-out"
+              class="absolute top-4 p-2 border border-b-2 border-neutral-300 bg-white mt-2 select-none rounded-md overflow-auto w-fit opacity-0 transition-all duration-300 ease-out"
             >
               <Show
                 when={
